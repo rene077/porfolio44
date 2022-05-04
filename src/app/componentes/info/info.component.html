@@ -1,0 +1,121 @@
+
+<div id="info"></div>
+
+<div class="modal fade" id="infoForm" tabindex="-1" aria-labelledby="infoFormLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="infoFormLabel">Info</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="infoForm" (ngSubmit)="onSubmit()">
+          <input type="hidden" name="id" formControlName="id">
+
+          <div class="row mb-3">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" name="name" formControlName="name" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="title" class="col-sm-2 col-form-label">Title/Position</label>
+            <div class="col-sm-10">
+              <input type="text" name="title" formControlName="title" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="location" class="col-sm-2 col-form-label">Location</label>
+            <div class="col-sm-10">
+              <input type="text" name="location" formControlName="location" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="company" class="col-sm-2 col-form-label">Company</label>
+            <div class="col-sm-10">
+              <input type="text" name="company" formControlName="company" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="celular" class="col-sm-2 col-form-label">Celular</label>
+            <div class="col-sm-10">
+              <input type="text" name="celular" formControlName="celular" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="correo" class="col-sm-2 col-form-label">Correo</label>
+            <div class="col-sm-10">
+              <input type="text" name="correo" formControlName="correo" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="imgp" class="col-sm-2 col-form-label">ImgPerfil</label>
+            <div class="col-sm-10">
+              <input type="text" name="imgp" formControlName="imgp" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="imgl" class="col-sm-2 col-form-label">ImgLogo</label>
+            <div class="col-sm-10">
+              <input type="text" name="imgl" formControlName="imgl" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button type="button" class="btn btn-secondary me-4" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card mat-card" id="first-card">
+ <li *ngFor="let info of infoList; let i = index">
+  <div id="profile-background"><img id="info-back-img"
+    src="/assets/images/header.jpg"></div>
+  <div id="info" style="padding: 16px">
+    <div id="info-img">
+      <img id="info-user-img" class="profile-image"
+      src="/assets/images/images.jpg"><div *ngIf="isUserLogged" class="btn-edit"><button class=" btn btn-right" data-bs-toggle="modal" data-bs-target="#infoForm" (click)="onEditInfo(i)"><i class="fa fa-pen"
+            ></i></button></div>
+    </div>
+    <div id="info-data">
+      <div>
+        <h1 id="info-name">{{info.name}}</h1>
+        <div><span id="info-position">{{info.title}}</span> en <span id="info-company">{{info.company}}</span></div>
+        <div id="info-contact">
+          <span id="info-ubication">{{info.location}} </span>
+          <span><a href="#">Información de contacto:</a>{{info.celular}}, {{info.correo}}</span>
+        </div>
+      </div>
+      <ul id="info-details">
+        <li><a href="#">
+            <img id="info-company-img"
+              src="/assets/images/{{info.imgp}}">
+            <h2 id="info-company-name">Argentina Programa</h2>
+          </a></li>
+        <li><a href="#">
+            <img id="info-school-img" src="/assets/images/{{info.imgl}}">
+            <h2 id="info-school-name">Future Digital</h2>
+          </a></li>
+      </ul>
+    </div>
+    <!--<div id="info-actions">
+      <button type="button" class="btn btn-primary">Tengo interés en</button>
+      <button type="button" class="btn btn-light">Añadir Sección</button>
+      <button type="button" class="btn btn-light">Más</button>
+    </div>-->
+  </div>
+ </li>
+</div>
