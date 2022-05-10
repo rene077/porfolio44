@@ -83,4 +83,15 @@ export class AptitudComponent implements OnInit {
     this.loadForm(aptitud);
   }
 
+  get Aptitud(){
+    return this.aptitudForm.get('aptitud')
+  }
+
+  get Resolution(){
+    return this.aptitudForm.get('resolution')
+  }
+
+  get Validators(){
+    return this.aptitudForm.get('validators')
+  }
 }

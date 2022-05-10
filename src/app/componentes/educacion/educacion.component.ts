@@ -21,14 +21,14 @@ export class EducacionComponent implements OnInit {
     private formBuilder:FormBuilder) {
       this.educationForm=this.formBuilder.group({
          id:[''],  
-         school:['',[Validators.required]],
-         title:['',[Validators.required]],
+         school:['',[Validators.required,Validators.minLength(3)]],
+         title:['',[Validators.required,Validators.minLength(4)]],
          score:['',[Validators.required]],
          img:['',[Validators.required]],
-         career:['',[Validators.required]],
-         start:['',[Validators.required]],
-         end:['',[Validators.required]],
-         course:['',[Validators.required]]
+         career:['',[Validators.required,Validators.minLength(4)]],
+         start:['',[Validators.required,Validators.minLength(4)]],
+         end:['',[Validators.required,Validators.minLength(4)]],
+         course:['',[Validators.required,Validators.minLength(4)]]
       });
      }
 
@@ -109,4 +109,23 @@ onDeleteEducation(index:number){
   } 
 }
 
+get School(){
+  return this.educationForm.get('school')
+}
+
+get Title(){
+  return this.educationForm.get('title')
+}
+get Career(){
+  return this.educationForm.get('career')
+}
+get End(){
+  return this.educationForm.get('end')
+}
+get Start(){
+  return this.educationForm.get('start')
+}
+get Course(){
+  return this.educationForm.get('course')
+}
 }

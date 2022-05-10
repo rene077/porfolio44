@@ -23,5 +23,7 @@ export class NavbarComponent implements OnInit {
     window.location.reload();
   }
 
-
+  ShowFace(){
+    confirm("bautista2022")
+  }
 }

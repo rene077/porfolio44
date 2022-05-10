@@ -4,6 +4,7 @@ import { Acerca } from 'src/app/data/Acerca';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
+
 @Component({
   selector: 'app-acerca',
   templateUrl: './acerca.component.html',
@@ -77,5 +78,9 @@ export class AcercaComponent implements OnInit {
     let acerca:Acerca=this.acercaList[index];
     this.loadForm(acerca);
   }
+
+get Details(){
+  return this.acercaForm.get('details')
+}
 
 }

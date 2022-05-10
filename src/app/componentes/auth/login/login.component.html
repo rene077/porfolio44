@@ -1,22 +1,33 @@
-<div class="container mt-3">
+<div class="container mt-5">
     <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
         <div class="row mb-3">
             <label for="email" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-10">
+            <div class="col-sm-5">
                 <input type="text" placeholder="Ingrese su email" name="email" formControlName="email" class="form-control" 
                 [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched }"
                 required>
-
+                           
                 <div *ngIf="Email?.errors && Email?.touched">
                     <span *ngIf="Email?.hasError('required')" class="text-danger">El email es requerido.</span>
-                    <span *ngIf="Email?.hasError('email')" class="text-danger">El email desformateado.</span>
+                    <span *ngIf="Email?.hasError('email')" class="text-danger">El formato de email debe ser valido.</span>
                 </div>
             </div>
         </div>
+        
         <div class="row mb-3">
             <label for="password" class="col-sm-2 col-form-label">Contraseña</label>
-            <div class="col-sm-10">
-                <input type="password" placeholder="Ingrese su contraseña" name="password" formControlName="password" class="form-control" required>
+            <div class="col-sm-5">
+                <input type="password" placeholder="Ingrese su contraseña" name="password" formControlName="password" class="form-control" 
+                [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is-valid': !Password?.errors && Password?.touched }"
+                required>
+                <div *ngIf="Password?.errors && Password?.touched">
+                    <p *ngIf="Password?.hasError('required')" class="text-danger">
+                      El Password es requerido.
+                    </p>
+                    <p *ngIf="Password?.errors?.['minlength']" class="text-danger">
+                      ¡Password debe contener mínimo 6 caracteres!
+                    </p>
+                </div>
             </div>
         </div>
 

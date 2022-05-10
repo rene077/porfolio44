@@ -12,58 +12,86 @@
           <input type="hidden" name="id" formControlName="id">
 
           <div class="row mb-3">
-            <label for="position" class="col-sm-2 col-form-label">Position</label>
+            <label for="position" class="col-sm-2 col-form-label">Posición</label>
             <div class="col-sm-10">
-              <input type="text" name="position" formControlName="position" class="form-control" required>
+              <input type="text" placeholder="posicion laboral" name="position" formControlName="position" class="form-control" 
+              [ngClass]="{'is-invalid': Position?.errors && Position?.touched, 'is-valid': !Position?.errors && Position?.touched }" 
+              required>
+              <div *ngIf="Position?.errors && Position?.touched">
+                <p *ngIf="Position?.hasError('required')" class="text-danger">
+                  El dato es fundamental!
+                </p>
+             </div>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label for="company" class="col-sm-2 col-form-label">Company</label>
+            <label for="company" class="col-sm-2 col-form-label">Companía</label>
             <div class="col-sm-10">
-              <input type="text" name="company" formControlName="company" class="form-control" required>
+              <input type="text" placeholder="nombre de companía" name="company" formControlName="company" class="form-control" 
+              [ngClass]="{'is-invalid': Company?.errors && Company?.touched, 'is-valid': !Company?.errors && Company?.touched }" 
+              required>
+              <div *ngIf="Company?.errors && Company?.touched">
+                <p *ngIf="Company?.hasError('required')" class="text-danger">
+                  El dato es fundamental!
+                </p>
+             </div>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label for="workday" class="col-sm-2 col-form-label">Workday</label>
+            <label for="workday" class="col-sm-2 col-form-label">Jornal</label>
             <div class="col-sm-10">
-              <input type="text" name="workday" formControlName="workday" class="form-control" required>
+              <input type="text" placeholder="forma de trabajo" name="workday" formControlName="workday" class="form-control" required>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label for="start" class="col-sm-2 col-form-label">Start</label>
+            <label for="start" class="col-sm-2 col-form-label">Inicio</label>
             <div class="col-sm-10">
-              <input type="text" name="start" formControlName="start" class="form-control" required>
+              <input type="text" placeholder="año de inicio" name="start" formControlName="start" class="form-control" required>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label for="end" class="col-sm-2 col-form-label">End</label>
+            <label for="end" class="col-sm-2 col-form-label">Finalización</label>
             <div class="col-sm-10">
-              <input type="text" name="end" formControlName="end" class="form-control" required>
+              <input type="text" placeholder="año finalizado o continua?" name="end" formControlName="end" class="form-control" required>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label for="location" class="col-sm-2 col-form-label">Location</label>
+            <label for="location" class="col-sm-2 col-form-label">Localidad</label>
             <div class="col-sm-10">
-              <input type="text" name="location" formControlName="location" class="form-control" required>
+              <input type="text" placeholder="pais-provincia" name="location" formControlName="location" class="form-control" 
+              [ngClass]="{'is-invalid': Location?.errors && Location?.touched, 'is-valid': !Location?.errors && Location?.touched }" 
+              required>
+              <div *ngIf="Location?.errors && Location?.touched">
+                <p *ngIf="Location?.hasError('required')" class="text-danger">
+                  El dato es fundamental!
+                </p>
+             </div>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label for="time" class="col-sm-2 col-form-label">TimeExperiencia</label>
+            <label for="time" class="col-sm-2 col-form-label">TiempoExp</label>
             <div class="col-sm-10">
-              <input type="text" name="time" formControlName="time" class="form-control" required>
+              <input type="text" placeholder="tiempo trabajado" name="time" formControlName="time" class="form-control" 
+              [ngClass]="{'is-invalid': Time?.errors && Time?.touched, 'is-valid': !Time?.errors && Time?.touched }" 
+              required>
+              <div *ngIf="Time?.errors && Time?.touched">
+                <p *ngIf="Time?.hasError('required')" class="text-danger">
+                  El dato es fundamental!
+                </p>
+              </div>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label for="imgp" class="col-sm-2 col-form-label">LogoCompany</label>
+            <label for="imgp" class="col-sm-2 col-form-label">ImgComp</label>
             <div class="col-sm-10">
-              <input type="text" name="imgp" formControlName="imgp" class="form-control" required>
+              <input type="text" placeholder="nombre de Archivo" name="imgp" formControlName="imgp" class="form-control" required>
             </div>
           </div>
 

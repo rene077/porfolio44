@@ -80,4 +80,12 @@ onEditProyecto(index:number){
   this.loadForm(proyecto);
 }
 
+get Proyect(){
+  return this.proyectoForm.get('proyect')
+}
+
+get Details(){
+  return this.proyectoForm.get('details')
+}
+
 }

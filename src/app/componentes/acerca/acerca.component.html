@@ -12,9 +12,16 @@
           <input type="hidden" name="id" formControlName="id">
 
           <div class="row mb-3">
-            <label for="details" class="col-sm-2 col-form-label">Details</label>
+            <label for="details" class="col-sm-2 col-form-label">Detalle</label>
             <div class="col-sm-10">
-              <input type="text" name="details" formControlName="details" class="form-control" required>
+              <input type="text" placeholder="detalles de usted" name="details" formControlName="details" class="form-control" 
+              [ngClass]="{'is-invalid': Details?.errors && Details?.touched, 'is-valid': !Details?.errors && Details?.touched }"
+              required>
+              <div *ngIf="Details?.errors && Details?.touched">
+                <p *ngIf="Details?.hasError('required')" class="text-danger">
+                  El dato es fundamental!
+                </p>
+             </div>
             </div>
           </div>
 

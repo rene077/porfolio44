@@ -12,21 +12,42 @@
           <div class="row mb-3">
             <label for="aptitud" class="col-sm-2 col-form-label">Aptitud</label>
             <div class="col-sm-10">
-              <input type="text" name="aptitud" formControlName="aptitud" class="form-control" required>
+              <input type="text" placeholder="escribe tu habilidad" name="aptitud" formControlName="aptitud" class="form-control" 
+              [ngClass]="{'is-invalid': Aptitud?.errors && Aptitud?.touched, 'is-valid': !Aptitud?.errors && Aptitud?.touched }"
+              required>
+              <div *ngIf="Aptitud?.errors && Aptitud?.touched">
+                <p *ngIf="Aptitud?.hasError('required')" class="text-danger">
+                  El dato es necesario!
+                </p>
+             </div>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label for="resolution" class="col-sm-2 col-form-label">Resolution</label>
+            <label for="resolution" class="col-sm-2 col-form-label">Resolución</label>
             <div class="col-sm-10">
-              <input type="number" name="resolution" formControlName="resolution" class="form-control" required>
+              <input type="number" placeholder="escribe el puntaje 1-100" name="resolution" formControlName="resolution" class="form-control" 
+              [ngClass]="{'is-invalid': Resolution?.errors && Resolution?.touched, 'is-valid': !Resolution?.errors && Resolution?.touched }"
+              required>
+              <div *ngIf="Resolution?.errors && Resolution?.touched">
+                <p *ngIf="Resolution?.hasError('required')" class="text-danger">
+                  El dato es fundamental!
+                </p>
+              </div>
             </div>
           </div>
 
           <div class="row mb-3">
             <label for="validators" class="col-sm-2 col-form-label">Validadores</label>
             <div class="col-sm-10">
-              <input type="text" name="validators" formControlName="validators" class="form-control" required>
+              <input type="text" placeholder="Personas que lo ratifican" name="validators" formControlName="validators" class="form-control" 
+              [ngClass]="{'is-invalid': Validators?.errors && Validators?.touched, 'is-valid': !Validators?.errors && Validators?.touched }"
+              required>
+              <div *ngIf="Validators?.errors && Validators?.touched">
+                <p *ngIf="Validators?.hasError('required')" class="text-danger">
+                  Los datos son necesarios!
+                </p>
+             </div>
             </div>
           </div>
 
@@ -42,7 +63,7 @@
 </div>
 
 <div class="card-titles">
-  <h2>Hard Skills & Soft Skills</h2>
+  <h2>Habilidades Fuertes o Debiles</h2>
   <div *ngIf="isUserLogged" class="btn-edit">
     <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#aptitudForm" (click)="onNewAptitud()"><i class="fa fa-plus" ></i></button>
   </div>

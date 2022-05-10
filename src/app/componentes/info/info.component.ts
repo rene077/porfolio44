@@ -25,7 +25,7 @@ export class InfoComponent implements OnInit {
            title:['',[Validators.required]],
            location:['',[Validators.required]],
            company:['',[Validators.required]],
-           correo:['',[Validators.required]],
+           correo:['',[Validators.required,Validators.email]],
            celular:['',[Validators.required]],
            imgp:['',[Validators.required]],
            imgl:['',[Validators.required]]
@@ -71,5 +71,21 @@ export class InfoComponent implements OnInit {
   onEditInfo(index:number){
     let info:Info=this.infoList[index];
     this.loadForm(info);
+  }
+
+  get Correo(){
+    return this.infoForm.get('correo')
+  }
+
+  get Name(){
+    return this.infoForm.get('name')
+  }
+
+  get Title(){
+    return this.infoForm.get('title')
+  }
+
+  get Company(){
+    return this.infoForm.get('company')
   }
 }

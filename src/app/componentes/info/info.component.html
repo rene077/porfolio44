@@ -13,30 +13,51 @@
           <input type="hidden" name="id" formControlName="id">
 
           <div class="row mb-3">
-            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <label for="name" class="col-sm-2 col-form-label">FullNombre</label>
             <div class="col-sm-10">
-              <input type="text" name="name" formControlName="name" class="form-control" required>
+              <input type="text" placeholder="nombre y apellido" name="name" formControlName="name" class="form-control" 
+              [ngClass]="{'is-invalid': Name?.errors && Name?.touched, 'is-valid': !Name?.errors && Name?.touched }"
+              required>
+              <div *ngIf="Name?.errors && Name?.touched">
+                <p *ngIf="Name?.hasError('required')" class="text-danger">
+                  El dato es fundamental!
+                </p>
+              </div>
+            </div>
+          </div>
+                                
+          <div class="row mb-3">
+            <label for="title" class="col-sm-2 col-form-label">Posición</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="posicion laboral ocupado" name="title" formControlName="title" class="form-control" 
+              [ngClass]="{'is-invalid': Title?.errors && Title?.touched, 'is-valid': !Title?.errors && Title?.touched }"
+              required>
+              <div *ngIf="Title?.errors && Title?.touched">
+                <p *ngIf="Title?.hasError('required')" class="text-danger">
+                  El dato es fundamental!
+                </p>
+             </div>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label for="title" class="col-sm-2 col-form-label">Title/Position</label>
-            <div class="col-sm-10">
-              <input type="text" name="title" formControlName="title" class="form-control" required>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <label for="location" class="col-sm-2 col-form-label">Location</label>
+            <label for="location" class="col-sm-2 col-form-label">Localidad</label>
             <div class="col-sm-10">
               <input type="text" name="location" formControlName="location" class="form-control" required>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label for="company" class="col-sm-2 col-form-label">Company</label>
+            <label for="company" class="col-sm-2 col-form-label">Companía</label>
             <div class="col-sm-10">
-              <input type="text" name="company" formControlName="company" class="form-control" required>
+              <input type="text" placeholder="nombre de companía" name="company" formControlName="company" class="form-control" 
+              [ngClass]="{'is-invalid': Company?.errors && Company?.touched, 'is-valid': !Company?.errors && Company?.touched }"
+              required>
+              <div *ngIf="Company?.errors && Company?.touched">
+                <p *ngIf="Company?.hasError('required')" class="text-danger">
+                  El dato es fundamental!
+                </p>
+             </div>
             </div>
           </div>
 
@@ -50,7 +71,13 @@
           <div class="row mb-3">
             <label for="correo" class="col-sm-2 col-form-label">Correo</label>
             <div class="col-sm-10">
-              <input type="text" name="correo" formControlName="correo" class="form-control" required>
+              <input type="text" name="correo" formControlName="correo" class="form-control" 
+              [ngClass]="{'is-invalid': Correo?.errors && Correo?.touched, 'is-valid': !Correo?.errors && Correo?.touched }"
+              required>
+              <div *ngIf="Correo?.errors && Correo?.touched">
+                <span *ngIf="Correo?.hasError('required')" class="text-danger">El email es requerido.</span>
+                <span *ngIf="Correo?.hasError('email')" class="text-danger">El email desformateado.</span>
+              </div>
             </div>
           </div>
 

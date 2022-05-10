@@ -109,4 +109,19 @@ export class ExperienciaComponent implements OnInit {
     }
   }
 
+  get Position(){
+    return this.experienciaForm.get('position')
+  }
+
+  get Company(){
+    return this.experienciaForm.get('company')
+  }
+  
+  get Time(){
+    return this.experienciaForm.get('time')
+  }
+
+  get Location(){
+    return this.experienciaForm.get('location')
+  }
 }
