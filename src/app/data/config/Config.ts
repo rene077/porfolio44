@@ -1,3 +1,3 @@
 export const config = {
-    baseUrl: "http://localhost:8080/"
+    baseUrl: "https://dry-falls-99611.herokuapp.com/"
 }
