@@ -24,6 +24,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ShowFace(){
-    confirm("bautista2022")
+    alert("¡No-Face!,sólo->Gmail:Bautistarene006@gmail.com");
   }
 }
